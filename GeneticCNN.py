@@ -6,29 +6,35 @@ from deap import base, creator, tools, algorithms
 from scipy.stats import bernoulli
 from dag import DAG, DAGValidationError
 
-# import tensorflow as tf
-# from tensorflow.python.framework.ops import reset_default_graph
-import tensorflow.compat.v1 as tf
-tf.disable_v2_behavior()
-# from tensorflow.examples.tutorials.mnist import input_data
+import tensorflow as tf
+from tensorflow.examples.tutorials.mnist import input_data
 
 
-# mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
-# train_imgs = mnist.train.images
-# train_labels = mnist.train.labels
-# test_imgs = mnist.test.images
-# test_labels = mnist.test.labels
+mnist = input_data.read_data_sets("MNIST_data/", one_hot=True)
+train_imgs = mnist.train.images
+train_labels = mnist.train.labels
+test_imgs = mnist.test.images
+test_labels = mnist.test.labels
 
-(train_imgs, train_labels), (test_imgs, test_labels) = tf.keras.datasets.mnist.load_data()
-print(train_labels.shape)
+# print(train_imgs.shape)
+# print(train_labels.shape)
+# print(test_imgs.shape)
+# print(test_labels.shape)
+
+# print(test_labels[0])
+
+# (train_imgs, train_labels), (test_imgs, test_labels) = tf.keras.datasets.mnist.load_data()
+# print(train_labels.shape)
 # mnist_train, mnist_test = tf.keras.datasets.mnist.load_data()
 # train_imgs = np.float32(mnist_train[0])
 # train_labels = np.asarray(mnist_train[1], dtype=np.int32)
 # test_imgs = np.float32(mnist_test[0])
 # test_labels = np.asarray(mnist_test[1], dtype=np.int32)
 
-train_imgs = np.reshape(train_imgs, [-1, 28, 28, 1])
-test_imgs = np.reshape(test_imgs, [-1, 28, 28, 1])
+# train_imgs = np.reshape(train_imgs, [-1, 28, 28, 1])
+# test_imgs = np.reshape(test_imgs, [-1, 28, 28, 1])
+# print(train_imgs.shape)
+# print(test_imgs.shape)
 
 STAGES = np.array(["s1", "s2"])  # S
 NUM_NODES = np.array([3, 5])  # K
